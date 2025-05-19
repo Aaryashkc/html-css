@@ -38,6 +38,283 @@
     <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <style>
+    /* =========================================
+       NEW MOBILE RESPONSIVE IMPROVEMENTS
+       Added: March 2024
+       Purpose: Enhance mobile user experience with better navigation and layout
+       ========================================= */
+    @media (max-width: 767px) {
+      /* NEW: Full-screen mobile sidebar with slide-in animation */
+      .sidebar-wrapper {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        transition: 0.3s;
+        background: #2c323f;
+      }
+      
+      /* NEW: Show sidebar when active class is added */
+      .sidebar-wrapper.show {
+        left: 0;
+      }
+      
+      /* NEW: Mobile close button styling */
+      .close-sidebar {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        display: block;
+      }
+      
+      /* NEW: Remove left margin for full-width content on mobile */
+      .page-body-wrapper {
+        margin-left: 0 !important;
+      }
+      
+      /* NEW: Increase touch target sizes for better mobile interaction */
+      .form-control, .form-select {
+        font-size: 16px !important;
+      }
+      
+      /* NEW: Add card margins for better spacing on mobile */
+      .card {
+        margin: 10px;
+      }
+      
+      /* NEW: Remove default row margins for better mobile layout */
+      .row {
+        margin: 0;
+      }
+      
+      /* NEW: Adjust column padding for better mobile spacing */
+      .col-sm-6, .col-sm-4, .col-sm-3 {
+        padding: 0 10px;
+      }
+      
+      /* NEW: Increase form group spacing on mobile */
+      .mb-3 {
+        margin-bottom: 1rem !important;
+      }
+      
+      /* NEW: Full-width buttons on mobile for better touch targets */
+      .btn {
+        width: 100%;
+        margin: 5px 0;
+      }
+      
+      /* NEW: Center align text on mobile for better readability */
+      .text-end {
+        text-align: center !important;
+      }
+      
+      /* NEW: Adjust sidebar header for mobile view */
+      .sidebar-header {
+        font-size: 24px !important;
+        margin: 20px !important;
+      }
+    }
+
+    /* =========================================
+       NEW TYPOGRAPHY IMPROVEMENTS
+       Added: March 2024
+       Purpose: Enhance readability and visual hierarchy
+       ========================================= */
+    /* NEW: Set base font family and line height for better readability */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      color: #2c323f;
+    }
+
+    /* NEW: Enhanced text visibility for labels and headings */
+    label, .form-label {
+      color: #2c323f;
+      font-weight: 500;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    h4, h5, h6 {
+      color: #2c323f;
+      font-weight: 600;
+    }
+
+    /* NEW: Enhanced placeholder styling for better visibility */
+    .form-control::placeholder,
+    .form-select::placeholder,
+    textarea.form-control::placeholder {
+      color: #495057 !important;
+      opacity: 0.9 !important;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    /* NEW: Style for form controls with enhanced visibility */
+    .form-control,
+    .form-select {
+      font-size: 15px;
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: 2px solid rgba(206, 212, 218, 0.8) !important;
+      color: #2c323f;
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: rgba(128, 189, 255, 0.8) !important;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+      color: #2c323f;
+    }
+
+    /* NEW: Style for disabled/readonly inputs */
+    .form-control:disabled,
+    .form-control[readonly] {
+      background-color: #f8f9fa;
+      opacity: 0.9;
+      cursor: not-allowed;
+      color: #6c757d;
+      border-color: rgba(206, 212, 218, 0.8) !important;
+    }
+
+    /* NEW: Style for required field indicators */
+    .required-field::after {
+      content: " *";
+      color: #dc3545;
+      font-weight: bold;
+    }
+
+    /* NEW: Style for textarea placeholders */
+    textarea.form-control::placeholder {
+      line-height: 1.5;
+    }
+
+    /* NEW: Style for select dropdowns */
+    .form-select {
+      background-color: #fff;
+      cursor: pointer;
+      font-weight: 400;
+    }
+
+    .form-select:hover {
+      border-color: #80bdff;
+    }
+
+    /* NEW: Style for form groups */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    /* NEW: Style for form text */
+    .form-text {
+      color: #6c757d;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    /* NEW: Style for validation messages */
+    .invalid-feedback {
+      font-size: 14px;
+      font-weight: 500;
+      color: #dc3545;
+    }
+
+    /* NEW: Style for radio and checkbox labels */
+    .form-check-label {
+      color: #2c323f;
+      font-weight: 400;
+      font-size: 15px;
+    }
+
+    /* NEW: Style for inline form elements */
+    .form-check-inline {
+      margin-right: 1rem;
+    }
+
+    /* NEW: Style for form section headers */
+    .fw-semibold {
+      color: #2c323f;
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    /* NEW: Enhanced checkbox and radio styling */
+    .form-check-input {
+      width: 1.2em;
+      height: 1.2em;
+      margin-top: 0.15em;
+      border: 2px solid rgba(206, 212, 218, 0.8) !important;
+      background-color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .form-check-input:checked {
+      background-color: #0d6efd;
+      border-color: #0d6efd !important;
+    }
+
+    .form-check-input:focus {
+      border-color: rgba(128, 189, 255, 0.8) !important;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+
+    .form-check-label {
+      color: #2c323f;
+      font-weight: 500;
+      font-size: 15px;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
+    .form-check {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+    }
+
+    .form-check-inline {
+      margin-right: 1.5rem;
+    }
+
+    /* NEW: Custom checkbox and radio styling */
+    .form-check-input[type="checkbox"] {
+      border-radius: 0.25em;
+    }
+
+    .form-check-input[type="radio"] {
+      border-radius: 50%;
+    }
+
+    .form-check-input[type="radio"]:checked {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+    }
+
+    /* NEW: Hover state for checkboxes and radios */
+    .form-check-input:hover {
+      border-color: rgba(128, 189, 255, 0.8) !important;
+    }
+
+    /* NEW: Disabled state for checkboxes and radios */
+    .form-check-input:disabled {
+      background-color: #e9ecef;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .form-check-input:disabled + .form-check-label {
+      color: #6c757d;
+      cursor: not-allowed;
+    }
+    </style>
   </head>
   <body> 
     <!-- loader starts-->
@@ -91,6 +368,9 @@
       
         <!-- Page Sidebar Start-->
         <div class="sidebar-wrapper" data-layout="stroke-svg">
+          <div class="close-sidebar d-md-none">
+            <i data-feather="x"></i>
+          </div>
           <div class="sidebar-header" style="font-size: 30px; color: aliceblue; margin: 20px; font-weight: 900;"> रोजगार दाता </div>
          
         </div>
@@ -127,13 +407,13 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="mb-3">
-                  <label class="fw-semibold">१. रोजगार दाता कम्पनीको नाम</label>
+                  <label class="fw-medium fw-semibold">१. रोजगार दाता कम्पनीको नाम</label>
                   <input class="form-control" type="text" placeholder="कम्पनीको नाम">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="mb-3">
-                  <label>रोजगार दाताको प्रकृति</label>
+                  <label class="fw-medium">रोजगार दाताको प्रकृति</label>
                   <select class="form-select">
                     <option>निजी</option>
                     <option>सरकारी</option>
@@ -148,11 +428,11 @@
             <!-- Row 2: रोजगार दाताको ठेगाना -->
             <div class="row">
               <div class="col-sm-12">
-                <label class="fw-semibold">२. रोजगार दाताको ठेगाना</label>
+                <label class="fw-medium fw-semibold">२. रोजगार दाताको ठेगाना</label>
               </div>
               <div class="col-sm-3">
                 <div class="mb-3">
-                  <label>प्रदेश</label>
+                  <label class="fw-medium">प्रदेश</label>
                   <select class="form-select">
                     <option>प्रदेश १</option>
                     <option>मधेश प्रदेश</option>
@@ -166,25 +446,25 @@
               </div>
               <div class="col-sm-3">
                 <div class="mb-3">
-                  <label>जिल्ला</label>
+                  <label class="fw-medium">जिल्ला</label>
                   <input class="form-control" type="text" placeholder="जिल्ला">
                 </div>
               </div>
               <div class="col-sm-2">
                 <div class="mb-3">
-                  <label>पालिका</label>
+                  <label class="fw-medium">पालिका</label>
                   <input class="form-control" type="text" placeholder="पालिका">
                 </div>
               </div>
               <div class="col-sm-2">
                 <div class="mb-3">
-                  <label>वडा न.</label>
+                  <label class="fw-medium">वडा न.</label>
                   <input class="form-control" type="text" placeholder="वडा न.">
                 </div>
               </div>
               <div class="col-sm-2">
                 <div class="mb-3">
-                  <label>टोल</label>
+                  <label class="fw-medium">टोल</label>
                   <input class="form-control" type="text" placeholder="टोल">
                 </div>
               </div>
@@ -194,7 +474,7 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="mb-3">
-                  <label class="fw-semibold" >३. फर्म स्थापना भएको मिति</label>
+                  <label class="fw-medium fw-semibold">३. फर्म स्थापना भएको मिति</label>
                   <div class="row">
                     <div class="col-sm-6">
                       <input class="form-control" type="number" placeholder="वर्ष">
@@ -207,7 +487,7 @@
               </div>
               <div class="col-sm-6">
                 <div class="mb-3">
-                  <label>४. फर्म चल्ने अवधि</label>
+                  <label class="fw-medium">४. फर्म चल्ने अवधि</label>
                   <select class="form-select">
                     <option>बर्ष भरि</option>
                     <option>मौसमी</option>
@@ -219,17 +499,17 @@
             <!-- Row 5: रोजगार दाताको स्वमित्वकर्ता/मालिक -->
             <div class="row">
               <div class="col-sm-12">
-                <label class="fw-semibold">५. रोजगार दाताको स्वमित्वकर्ता/मालिक</label>
+                <label class="fw-medium fw-semibold">५. रोजगार दाताको स्वमित्वकर्ता/मालिक</label>
               </div>
               <div class="col-sm-4">
                 <div class="mb-3">
-                  <label>नाम</label>
+                  <label class="fw-medium">नाम</label>
                   <input class="form-control" type="text" placeholder="मालिकको नाम">
                 </div>
               </div>
               <div class="col-sm-8">
                 <div class="mb-3">
-                  <label>ठेगाना</label>
+                  <label class="fw-medium">ठेगाना</label>
                   <div class="row">
                     <div class="col-sm-3">
                       <select class="form-select">
@@ -261,13 +541,13 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="mb-3">
-                  <label>सम्पर्क न.</label>
+                  <label class="fw-medium">सम्पर्क न.</label>
                   <input class="form-control" type="text" placeholder="सम्पर्क नम्बर">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="mb-3">
-                  <label>इमेल</label>
+                  <label class="fw-medium">इमेल</label>
                   <input class="form-control" type="email" placeholder="इमेल ठेगाना">
                 </div>
               </div>
@@ -276,23 +556,23 @@
             <!-- Row 6: जनशक्ति विवरण -->
             <div class="row">
               <div class="col-sm-12">
-                <label class="fw-semibold">६. जनशक्ति विवरण (दक्ष, अर्ददक्ष, अदक्ष)</label>
+                <label class="fw-medium fw-semibold">६. जनशक्ति विवरण (दक्ष, अर्ददक्ष, अदक्ष)</label>
               </div>
               <div class="col-sm-4">
                 <div class="mb-3">
-                  <label>नाम</label>
+                  <label class="fw-medium">नाम</label>
                   <input class="form-control" type="text" placeholder="नाम">
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="mb-3">
-                  <label>पद</label>
+                  <label class="fw-medium">पद</label>
                   <input class="form-control" type="text" placeholder="पद">
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="mb-3">
-                  <label>आवश्यक सिप (कस्तो काम गर्न सक्ने)</label>
+                  <label class="fw-medium">आवश्यक सिप (कस्तो काम गर्न सक्ने)</label>
                   <input class="form-control" type="text" placeholder="आवश्यक सिप">
                 </div>
               </div>
@@ -308,31 +588,31 @@
             <!-- Row 7: रिक्त जनशक्ति विवरण -->
             <div class="row">
               <div class="col-sm-12">
-                <label class="fw-semibold">७. रिक्त जनशक्ति विवरण (दक्ष, अर्ददक्ष, अदक्ष)</label>
+                <label class="fw-medium fw-semibold">७. रिक्त जनशक्ति विवरण (दक्ष, अर्ददक्ष, अदक्ष)</label>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-3">
                 <div class="mb-3">
-                  <label>पद</label>
+                  <label class="fw-medium">पद</label>
                   <input class="form-control" type="text" placeholder="पद">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="mb-3">
-                  <label>संख्या</label>
+                  <label class="fw-medium">संख्या</label>
                   <input class="form-control" type="number" placeholder="0">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="mb-3">
-                  <label>आवश्यक सिप</label>
+                  <label class="fw-medium">आवश्यक सिप</label>
                   <input class="form-control" type="text" placeholder="आवश्यक सिप">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="mb-3">
-                  <label>शैक्षिक योग्यता</label>
+                  <label class="fw-medium">शैक्षिक योग्यता</label>
                   <input class="form-control" type="text" placeholder="शैक्षिक योग्यता">
                 </div>
               </div>
@@ -340,42 +620,35 @@
             <div class="row">
               <div class="col-sm-3">
                 <div class="mb-3">
-                  <label>काम गरेको अनुभव</label>
+                  <label class="fw-medium">काम गरेको अनुभव</label>
                   <input class="form-control" type="text" placeholder="अनुभव">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="mb-3">
-                  <label>कामको विवरण</label>
+                  <label class="fw-medium">कामको विवरण</label>
                   <input class="form-control" type="text" placeholder="कामको विवरण">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="mb-3">
-                  <label>कति समय</label>
+                  <label class="fw-medium">कति समय</label>
                   <input class="form-control" type="text" placeholder="समय अवधि">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="mb-3">
-                  <label>सिप</label>
+                  <label class="fw-medium">सिप</label>
                   <input class="form-control" type="text" placeholder="सिप">
                 </div>
               </div>
             </div>
-            <!-- <div class="row">
-              <div class="col-sm-12">
-                <div class="mb-3">
-                  <button type="button" class="btn btn-primary btn-sm">अर्को रिक्त पद थप्नुहोस्</button>
-                </div>
-              </div>
-            </div> -->
 
             <!-- Row 8: जनशक्ति कहाँबाट पाउनुहुन्छ? -->
             <div class="row">
               <div class="col-sm-12">
                 <div class="mb-3">
-                  <label class="fw-semibold">८. जनशक्ति कहाँबाट पाउनुहुन्छ?</label>
+                  <label class="fw-medium fw-semibold">८. जनशक्ति कहाँबाट पाउनुहुन्छ?</label>
                   <select class="form-select">
                     <option>बिज्ञापन</option>
                     <option>आफैं</option>
@@ -390,7 +663,7 @@
             <div class="row">
               <div class="col-sm-4">
                 <div class="mb-3">
-                  <label class="fw-semibold">९. उत्तरदाता को हो?</label>
+                  <label class="fw-medium fw-semibold">९. उत्तरदाता को हो?</label>
                   <select class="form-select">
                     <option>कर्मचारी</option>
                     <option>परिवारको सदस्य</option>
@@ -400,13 +673,13 @@
               </div>
               <div class="col-sm-4">
                 <div class="mb-3">
-                  <label>नाम</label>
+                  <label class="fw-medium">नाम</label>
                   <input class="form-control" type="text" placeholder="उत्तरदाताको नाम">
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="mb-3">
-                  <label>पद</label>
+                  <label class="fw-medium">पद</label>
                   <input class="form-control" type="text" placeholder="उत्तरदाताको पद">
                 </div>
               </div>
@@ -415,27 +688,27 @@
             <!-- Row 10: स्थानीय सारकरबाट फर्म संचालनमा कस्तो अपेक्षा -->
             <div class="row">
               <div class="col-sm-12">
-                <label class="fw-semibold">१०. स्थानीय सारकरबाट फर्म संचालनमा कस्तो अपेक्षा गर्नुहुन्छ?</label>
+                <label class="fw-medium fw-semibold">१०. स्थानीय सारकरबाट फर्म संचालनमा कस्तो अपेक्षा गर्नुहुन्छ?</label>
                 <div class="mb-3">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="expectation1">
-                    <label class="form-check-label" for="expectation1">उपुक्त स्थानीय नीति</label>
+                    <label class="form-check-label fw-medium" for="expectation1">उपुक्त स्थानीय नीति</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="expectation2">
-                    <label class="form-check-label" for="expectation2">जनशक्ति आपूर्तिमा सहयोग</label>
+                    <label class="form-check-label fw-medium" for="expectation2">जनशक्ति आपूर्तिमा सहयोग</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="expectation3">
-                    <label class="form-check-label" for="expectation3">जनशक्तिको सिप बिकासमा सहयोग</label>
+                    <label class="form-check-label fw-medium" for="expectation3">जनशक्तिको सिप बिकासमा सहयोग</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="expectation4">
-                    <label class="form-check-label" for="expectation4">बजारीकरणमा सहयोग</label>
+                    <label class="form-check-label fw-medium" for="expectation4">बजारीकरणमा सहयोग</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="expectation5">
-                    <label class="form-check-label" for="expectation5">अन्य</label>
+                    <label class="form-check-label fw-medium" for="expectation5">अन्य</label>
                     <input class="form-control mt-2" type="text" placeholder="अन्य अपेक्षा उल्लेख गर्नुहोस्">
                   </div>
                 </div>
@@ -446,14 +719,14 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="mb-3">
-                  <label class="fw-semibold">११. के तपाइले बार्षिक रुपमा आवश्यक पर्ने जनशक्ति आंकलन/कार्ययोजना बनाएको छ?</label>
+                  <label class="fw-medium fw-semibold">११. के तपाइले बार्षिक रुपमा आवश्यक पर्ने जनशक्ति आंकलन/कार्ययोजना बनाएको छ?</label>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="workplan" id="workplan1" value="छ">
-                    <label class="form-check-label" for="workplan1">छ</label>
+                    <label class="form-check-label fw-medium" for="workplan1">छ</label>
                   </div>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="workplan" id="workplan2" value="छैन">
-                    <label class="form-check-label" for="workplan2">छैन</label>
+                    <label class="form-check-label fw-medium" for="workplan2">छैन</label>
                   </div>
                 </div>
               </div>
@@ -473,7 +746,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="mb-3">
-                  <label class="fw-semibold">१२. फर्म संचालन गर्न, जनशक्ति व्यवस्थापन गर्न नगरपालिकाले के गरिदिएहुन्थो जस्तो लाग्छ?</label>
+                  <label class="fw-medium fw-semibold">१२. फर्म संचालन गर्न, जनशक्ति व्यवस्थापन गर्न नगरपालिकाले के गरिदिएहुन्थो जस्तो लाग्छ?</label>
                   <textarea class="form-control" rows="3" placeholder="सुझाव लेख्नुहोस्"></textarea>
                 </div>
               </div>
@@ -483,7 +756,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="mb-3">
-                  <label class="fw-semibold">१३. रोजगार सृजना, उद्यम विकास, स्वरोजगार, नगरपालिकाको आर्थिक बिकास सम्बन्धि केहि सुझाब भए दिनुहोला</label>
+                  <label class="fw-medium fw-semibold">१३. रोजगार सृजना, उद्यम विकास, स्वरोजगार, नगरपालिकाको आर्थिक बिकास सम्बन्धि केहि सुझाब भए दिनुहोला</label>
                   <textarea class="form-control" rows="3" placeholder="सुझाव लेख्नुहोस्"></textarea>
                 </div>
               </div>
@@ -536,6 +809,33 @@
   // Hide conditional fields initially
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('workplanExists').style.display = 'none';
+  });
+
+  // NEW: Mobile menu functionality
+  // Added: March 2025
+  // Purpose: Handle mobile sidebar interactions
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements for mobile menu
+    const toggleBtn = document.querySelector('.toggle-sidebar');
+    const sidebar = document.querySelector('.sidebar-wrapper');
+    const closeBtn = document.querySelector('.close-sidebar');
+    
+    // NEW: Toggle sidebar on menu button click
+    toggleBtn.addEventListener('click', function() {
+      sidebar.classList.add('show');
+    });
+    
+    // NEW: Close sidebar on close button click
+    closeBtn.addEventListener('click', function() {
+      sidebar.classList.remove('show');
+    });
+    
+    // NEW: Close sidebar when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+        sidebar.classList.remove('show');
+      }
+    });
   });
 </script>
 

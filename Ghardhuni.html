@@ -38,6 +38,319 @@
     <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <style>
+    /* =========================================
+       NEW MOBILE RESPONSIVE IMPROVEMENTS
+       Added: March 2024
+       Purpose: Enhance mobile user experience with better navigation and layout
+       ========================================= */
+    @media (max-width: 767px) {
+      /* NEW: Full-screen mobile sidebar with slide-in animation */
+      .sidebar-wrapper {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        transition: 0.3s;
+        background: #2c323f;
+      }
+      
+      /* NEW: Show sidebar when active class is added */
+      .sidebar-wrapper.show {
+        left: 0;
+      }
+      
+      /* NEW: Mobile close button styling */
+      .close-sidebar {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        display: block;
+      }
+      
+      /* NEW: Remove left margin for full-width content on mobile */
+      .page-body-wrapper {
+        margin-left: 0 !important;
+      }
+      
+      /* NEW: Increase touch target sizes for better mobile interaction */
+      .form-control, .form-select {
+        font-size: 16px !important;
+      }
+      
+      /* NEW: Add card margins for better spacing on mobile */
+      .card {
+        margin: 10px;
+      }
+      
+      /* NEW: Remove default row margins for better mobile layout */
+      .row {
+        margin: 0;
+      }
+      
+      /* NEW: Adjust column padding for better mobile spacing */
+      .col-sm-6, .col-sm-4, .col-sm-3 {
+        padding: 0 10px;
+      }
+      
+      /* NEW: Increase form group spacing on mobile */
+      .mb-3 {
+        margin-bottom: 1rem !important;
+      }
+      
+      /* NEW: Full-width buttons on mobile for better touch targets */
+      .btn {
+        width: 100%;
+        margin: 5px 0;
+      }
+      
+      /* NEW: Center align text on mobile for better readability */
+      .text-end {
+        text-align: center !important;
+      }
+      
+      /* NEW: Adjust sidebar header for mobile view */
+      .sidebar-header {
+        font-size: 24px !important;
+        margin: 20px !important;
+      }
+    }
+
+    /* =========================================
+       NEW TYPOGRAPHY IMPROVEMENTS
+       Added: March 2024
+       Purpose: Enhance readability and visual hierarchy
+       ========================================= */
+    /* NEW: Set base font family and line height for better readability */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      color: #2c323f;
+    }
+
+    /* NEW: Enhanced text visibility for labels and headings */
+    label, .form-label {
+      color: #2c323f;
+      font-weight: 500;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    h4, h5, h6 {
+      color: #2c323f;
+      font-weight: 600;
+    }
+
+    /* NEW: Enhanced placeholder styling for better visibility */
+    .form-control::placeholder,
+    .form-select::placeholder,
+    textarea.form-control::placeholder {
+      color: #495057 !important;
+      opacity: 0.9 !important;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    /* NEW: Style for number input placeholders */
+    input[type="number"]::placeholder {
+      font-weight: 500 !important;
+      color: #495057 !important;
+      opacity: 0.9 !important;
+    }
+
+    /* NEW: Style for form controls with enhanced visibility */
+    .form-control,
+    .form-select {
+      font-size: 15px;
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: 2px solid rgba(206, 212, 218, 0.8) !important;
+      color: #2c323f;
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: rgba(128, 189, 255, 0.8) !important;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+      color: #2c323f;
+    }
+
+    /* NEW: Style for disabled/readonly inputs */
+    .form-control:disabled,
+    .form-control[readonly] {
+      background-color: #f8f9fa;
+      opacity: 0.9;
+      cursor: not-allowed;
+      color: #6c757d;
+      border-color: rgba(206, 212, 218, 0.8) !important;
+    }
+
+    /* NEW: Style for required field indicators */
+    .required-field::after {
+      content: " *";
+      color: #dc3545;
+      font-weight: bold;
+    }
+
+    /* NEW: Enhanced button styling */
+    .btn {
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 15px;
+      border-width: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* NEW: Enhanced card styling */
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background-color: #fff;
+      border: 2px solid rgba(206, 212, 218, 0.8);
+    }
+
+    /* NEW: Style for textarea placeholders */
+    textarea.form-control::placeholder {
+      line-height: 1.5;
+    }
+
+    /* NEW: Style for select dropdowns */
+    .form-select {
+      background-color: #fff;
+      cursor: pointer;
+      font-weight: 400;
+    }
+
+    .form-select:hover {
+      border-color: rgba(128, 189, 255, 0.8) !important;
+    }
+
+    /* NEW: Style for form groups */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    /* NEW: Style for form text */
+    .form-text {
+      color: #6c757d;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    /* NEW: Style for validation messages */
+    .invalid-feedback {
+      font-size: 14px;
+      font-weight: 500;
+      color: #dc3545;
+    }
+
+    /* NEW: Style for number input spinners */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      opacity: 1;
+      height: 30px;
+    }
+
+    /* NEW: Enhanced form section styling */
+    .form-section {
+      background-color: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 2px solid rgba(206, 212, 218, 0.8);
+    }
+
+    /* NEW: Enhanced checkbox and radio styling */
+    .form-check-input {
+      width: 1.2em;
+      height: 1.2em;
+      margin-top: 0.15em;
+      border: 2px solid rgba(206, 212, 218, 0.8) !important;
+      background-color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .form-check-input:checked {
+      background-color: #0d6efd;
+      border-color: #0d6efd !important;
+    }
+
+    .form-check-input:focus {
+      border-color: rgba(128, 189, 255, 0.8) !important;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+
+    .form-check-label {
+      color: #2c323f;
+      font-weight: 500;
+      font-size: 15px;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
+    .form-check {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+    }
+
+    .form-check-inline {
+      margin-right: 1.5rem;
+    }
+
+    /* NEW: Custom checkbox and radio styling */
+    .form-check-input[type="checkbox"] {
+      border-radius: 0.25em;
+    }
+
+    .form-check-input[type="radio"] {
+      border-radius: 50%;
+    }
+
+    .form-check-input[type="radio"]:checked {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+    }
+
+    /* NEW: Hover state for checkboxes and radios */
+    .form-check-input:hover {
+      border-color: rgba(128, 189, 255, 0.8) !important;
+    }
+
+    /* NEW: Disabled state for checkboxes and radios */
+    .form-check-input:disabled {
+      background-color: #e9ecef;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .form-check-input:disabled + .form-check-label {
+      color: #6c757d;
+      cursor: not-allowed;
+    }
+
+    /* NEW: Enhanced table styling */
+    .table {
+      border: 2px solid rgba(206, 212, 218, 0.8);
+    }
+
+    .table th,
+    .table td {
+      border: 1px solid rgba(206, 212, 218, 0.8);
+    }
+    </style>
   </head>
   <body> 
     <!-- loader starts-->
@@ -90,6 +403,10 @@
       
         <!-- Page Sidebar Start-->
         <div class="sidebar-wrapper" data-layout="stroke-svg">
+          <!-- Add close button for mobile menu -->
+          <div class="close-sidebar d-md-none">
+            <i data-feather="x"></i>
+          </div>
           <div class="sidebar-header" style="font-size: 30px; color: aliceblue; margin: 50px; font-weight: 900;">  घरधुरी  </div>
          
         </div>
@@ -583,5 +900,33 @@
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <!-- <script src="../assets/js/theme-customizer/customizer.js"></script> -->
+    <script>
+    // NEW: Mobile menu functionality
+    // Added: March 2024
+    // Purpose: Handle mobile sidebar interactions
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get DOM elements for mobile menu
+      const toggleBtn = document.querySelector('.toggle-sidebar');
+      const sidebar = document.querySelector('.sidebar-wrapper');
+      const closeBtn = document.querySelector('.close-sidebar');
+      
+      // NEW: Toggle sidebar on menu button click
+      toggleBtn.addEventListener('click', function() {
+        sidebar.classList.add('show');
+      });
+      
+      // NEW: Close sidebar on close button click
+      closeBtn.addEventListener('click', function() {
+        sidebar.classList.remove('show');
+      });
+      
+      // NEW: Close sidebar when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+          sidebar.classList.remove('show');
+        }
+      });
+    });
+    </script>
   </body>
 </html>
